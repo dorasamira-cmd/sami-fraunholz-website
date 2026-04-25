@@ -2,7 +2,17 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, ArrowRight, ShieldCheck, Building2, HeartHandshake, Laptop, CheckCircle2, Mail, Phone, MapPin, Linkedin } from 'lucide-react';
+import { 
+  Calendar, 
+  ArrowRight, 
+  ShieldCheck, 
+  Building2, 
+  HeartHandshake, 
+  Laptop, 
+  CheckCircle2, 
+  Mail, 
+  Phone 
+} from 'lucide-react';
 
 const servicesPrivate = [
   'Coaching in herausfordernden Lebenslagen',
