@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from 'next';
 
 export const metadata: Metadata = {
   title: 'Sami Fraunholz — Management Portfolio',
-  description: 'Visuelle Identitäten und digitale Erfahrungen mit Haltung.',
+  description: 'Management, digitale Transformation und KI-gestützte Organisationslösungen von Sami Fraunholz.',
 };
 
 export const viewport: Viewport = { themeColor: '#f3f2ee', width: 'device-width', initialScale: 1 };

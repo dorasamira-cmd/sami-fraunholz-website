@@ -1,0 +1,13 @@
+import { ArrowLeft, ArrowUpRight } from 'lucide-react';
+import Link from 'next/link';
+
+const details: Record<string, { number: string; title: string; category: string; status: string; description: string; points: string[] }> = {
+  'facility-management': { number: '01', title: 'Facility Management System', category: 'Operations', status: 'In development', description: 'Eine zentrale Operations-Plattform, die Aufgaben, Zuständigkeiten und Fortschritt in einer belastbaren Sicht zusammenführt.', points: ['Operational visibility', 'Structured handovers', 'Less manual coordination'] },
+  'case-management': { number: '02', title: 'Digital Case Management', category: 'Digital product', status: 'Selected work', description: 'Ein digitales System für komplexe Fälle, das Entscheidungen nachvollziehbar macht und Teams durch klare nächste Schritte führt.', points: ['Clear case ownership', 'Traceable decisions', 'Consistent processes'] },
+  'ai-workflow': { number: '03', title: 'AI Workflow Automation', category: 'AI systems', status: 'Prototype', description: 'KI-gestützte Automatisierung für wiederkehrende Arbeit — mit klaren Regeln, menschlicher Kontrolle und einem praktischen Weg in den Alltag.', points: ['Human-in-the-loop', 'Private data flows', 'Repeatable automation'] },
+};
+
+export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params; const project = details[slug] ?? details['facility-management'];
+  return <main><header className="site-header page-width"><Link className="brand" href="/"><span className="brand-mark" /> SAMI FRAUNHOLZ</Link><Link href="/" className="back-link"><ArrowLeft size={16} /> All work</Link></header><section className="detail-hero page-width"><div className="eyebrow">{project.number} · {project.category} · {project.status}</div><h1>{project.title}</h1><p>{project.description}</p></section><section className="detail-body page-width"><div className="detail-interface"><div className="preview-top"><span /><span /><span /></div><div className="preview-body"><div className="preview-sidebar"><i /><i /><i /><i /></div><div className="preview-content"><b /><b /><div className="preview-row"><span /><span /><span /></div><div className="preview-row"><span /><span /><span /></div><div className="preview-row"><span /><span /><span /></div></div></div></div><div className="detail-points">{project.points.map((point, index) => <div key={point}><span>0{index + 1}</span><h2>{point}</h2></div>)}</div></section><footer className="page-width"><span>SAMI FRAUNHOLZ</span><Link href="/">Back to portfolio <ArrowUpRight size={16} /></Link></footer></main>;
+}
