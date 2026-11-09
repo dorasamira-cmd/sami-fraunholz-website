@@ -2,7 +2,7 @@ import './globals.css';
 import type { Metadata, Viewport } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Lina Mora — Independent Creative Studio',
+  title: 'Sami Fraunholz — Management Portfolio',
   description: 'Visuelle Identitäten und digitale Erfahrungen mit Haltung.',
 };
 
