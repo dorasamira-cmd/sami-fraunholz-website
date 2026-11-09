@@ -33,7 +33,7 @@ export default function Home() {
         <div className="hero-card">
           <div className="hero-topline"><span className="brand-large">SAMI<br />FRAUNHOLZ</span><span>DIGITAL PRODUCT<br />PORTFOLIO</span></div>
           <div className="hero-copy"><p className="hero-kicker">Management · Digital Products · AI Systems</p><h1>Building digital solutions<br />for <em>real-world</em> operations.</h1><p className="hero-description">Digitale Anwendungen, KI-gestützte Systeme und Automatisierung — entwickelt aus realen operativen Anforderungen.</p></div>
-          <div className="hero-image"><div className="portal" /><span className="image-note">01 / SYSTEMS IN MOTION</span></div>
+          <div className="hero-lines" aria-hidden="true"><span /><span /><span /></div>
           <div className="hero-actions"><a className="button-dark" href="#projects">Explore projects <ArrowUpRight size={20} /></a><a className="about-link" href="#about">About my work</a></div>
           <div className="hero-footer"><span>BERLIN · GERMANY</span><a className="scroll-button" href="#projects" aria-label="Zu Projekten scrollen"><ArrowDown size={21} /></a></div>
         </div>
