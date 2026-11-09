@@ -1,15 +1,13 @@
 import './globals.css';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Sami Fraunholz | Sozialcoaching & ASOG Consulting',
-  description: 'Coaching für Einzelpersonen und Consulting für ASOG-Unterkünfte und soziale Einrichtungen in Berlin.',
+  title: 'Lina Mora — Independent Creative Studio',
+  description: 'Visuelle Identitäten und digitale Erfahrungen mit Haltung.',
 };
 
+export const viewport: Viewport = { themeColor: '#f3f2ee', width: 'device-width', initialScale: 1 };
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="de">
-      <body>{children}</body>
-    </html>
-  );
+  return <html lang="de"><body>{children}</body></html>;
 }
