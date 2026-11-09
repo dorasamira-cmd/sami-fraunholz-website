@@ -1,57 +1,50 @@
 'use client';
 
-import { ArrowUpRight, ArrowDown, Menu, X, Mail } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
 const projects = [
-  { number: '01', title: 'Aesop / Quiet rituals', type: 'Art direction · Digital', color: 'bg-[#d9d1c3]', accent: 'from-[#b7ab98] to-[#f0e6d8]' },
-  { number: '02', title: 'Still / Object studies', type: 'Photography · Identity', color: 'bg-[#b8c6bd]', accent: 'from-[#6d8177] to-[#d8e2dc]' },
-  { number: '03', title: 'Noma / New Nordic', type: 'Strategy · Editorial', color: 'bg-[#d5d9e2]', accent: 'from-[#929db2] to-[#eef0f5]' },
+  { no: '01', title: 'Operational AI', type: 'AI systems · Automation', year: '2025', tone: 'blue' },
+  { no: '02', title: 'Product foundations', type: 'Digital product · Strategy', year: '2024', tone: 'sand' },
+  { no: '03', title: 'The human layer', type: 'Management · Transformation', year: '2024', tone: 'green' },
 ];
 
-function Mark() {
-  return <span className="mark" aria-hidden="true"><span /></span>;
+function LineMark() {
+  return <span className="line-mark" aria-hidden="true"><i /><i /><i /></span>;
 }
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
+
   return (
-    <main>
+    <main id="top">
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Lina Mora, Startseite"><Mark /><span>LINA<br />MORA</span></a>
+        <a className="brand" href="#top" aria-label="Sami Fraunholz Startseite">SAMI<br />FRAUNHOLZ</a>
         <nav className={menuOpen ? 'nav nav-open' : 'nav'} aria-label="Hauptnavigation">
-          <a href="#work" onClick={() => setMenuOpen(false)}>Work</a>
-          <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
-          <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+          <a href="#projects" onClick={closeMenu}>Projects</a>
+          <a href="#about" onClick={closeMenu}>About</a>
+          <a href="#contact" onClick={closeMenu}>Contact</a>
         </nav>
-        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Menü schließen' : 'Menü öffnen'} aria-expanded={menuOpen}>{menuOpen ? <X size={20} /> : <Menu size={20} />}</button>
+        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Menü schließen' : 'Menü öffnen'} aria-expanded={menuOpen}>{menuOpen ? <X size={22} /> : <Menu size={22} />}</button>
       </header>
 
-      <section id="top" className="hero section-pad">
-        <div className="eyebrow"><span className="dot" /> Independent creative studio · Berlin / Remote</div>
-        <h1>Ideas with<br /><em>intention.</em></h1>
-        <div className="hero-bottom">
-          <p>Ich entwickle visuelle Identitäten und digitale Erfahrungen für Marken mit Haltung.</p>
-          <a className="circle-link" href="#work" aria-label="Zu den Projekten scrollen"><ArrowDown size={22} /></a>
-        </div>
-        <div className="hero-shape" aria-hidden="true"><span>LM</span></div>
-      </section>
-
-      <section id="work" className="work section-pad">
-        <div className="section-heading"><span className="index">01 /</span><h2>Selected work</h2><span className="line" /></div>
-        <div className="project-list">
-          {projects.map((project) => <article className="project" key={project.number}>
-            <div className={`project-visual ${project.color}`}><div className={`visual-art bg-gradient-to-br ${project.accent}`}><span>{project.number}</span><div className="visual-orbit" /></div><a className="project-arrow" href="#contact" aria-label={`${project.title} ansehen`}><ArrowUpRight size={20} /></a></div>
-            <div className="project-meta"><span className="index">{project.number}</span><div><h3>{project.title}</h3><p>{project.type}</p></div><span className="project-year">2024</span></div>
-          </article>)}
+      <section className="hero section-pad">
+        <div className="hero-card">
+          <div className="hero-topline"><span className="brand-large">SAMI<br />FRAUNHOLZ</span><span>DIGITAL PRODUCT<br />PORTFOLIO</span></div>
+          <div className="hero-copy"><p className="hero-kicker">Management · Digital Products · AI Systems</p><h1>Building digital solutions<br />for <em>real-world</em> operations.</h1><p className="hero-description">Digitale Anwendungen, KI-gestützte Systeme und Automatisierung — entwickelt aus realen operativen Anforderungen.</p></div>
+          <div className="hero-image"><div className="portal" /><span className="image-note">01 / SYSTEMS IN MOTION</span></div>
+          <div className="hero-actions"><a className="button-dark" href="#projects">Explore projects <ArrowUpRight size={20} /></a><a className="about-link" href="#about">About my work</a></div>
+          <div className="hero-footer"><span>BERLIN · GERMANY</span><a className="scroll-button" href="#projects" aria-label="Zu Projekten scrollen"><ArrowDown size={21} /></a></div>
         </div>
       </section>
 
-      <section id="about" className="about section-pad"><div className="section-heading"><span className="index">02 /</span><h2>About</h2><span className="line" /></div><div className="about-grid"><h2>Design can be<br /><em>quietly powerful.</em></h2><div><p className="lead">Lina Mora ist ein unabhängiges Studio für Identität, digitale Produkte und visuelle Systeme.</p><p>Mit einem Auge für Details und einem Faible für klare Gedanken arbeite ich mit Menschen und Teams, die ihre Idee nicht nur zeigen, sondern spürbar machen wollen.</p><a className="text-link" href="mailto:hello@linamora.studio">Mehr über mich <ArrowUpRight size={16} /></a></div></div></section>
+      <section id="projects" className="projects section-pad"><div className="section-heading"><span>01 / SELECTED WORK</span><span className="rule" /></div><div className="project-list">{projects.map((project) => <article className="project" key={project.no}><div className={`project-visual ${project.tone}`}><span className="project-no">{project.no}</span><LineMark /><a href="#contact" className="project-open" aria-label={`${project.title} öffnen`}><ArrowUpRight size={20} /></a></div><div className="project-meta"><div><h2>{project.title}</h2><p>{project.type}</p></div><span>{project.year}</span></div></article>)}</div></section>
 
-      <section id="contact" className="contact section-pad"><div className="section-heading"><span className="index">03 /</span><h2>Get in touch</h2><span className="line" /></div><div className="contact-content"><h2>Let&apos;s make<br /><em>something matter.</em></h2><a className="email-link" href="mailto:hello@linamora.studio">hello@linamora.studio <ArrowUpRight size={26} /></a></div></section>
+      <section id="about" className="about section-pad"><div className="section-heading"><span>02 / ABOUT</span><span className="rule" /></div><div className="about-grid"><h2>Technological transformation<br />is not a question of <em>if</em>,<br />but <em>how.</em></h2><div className="about-copy"><p className="lead">Operative Führung und Prozessautomatisierung bilden den Kern meiner Arbeit.</p><p>Dabei geht es um die Entwicklung und Integration KI-gestützter Lösungen und Agentensysteme für die Anforderungen des Unternehmensalltags.</p><p>Datenschutz und Anbieterunabhängigkeit sind wesentliche Kriterien. Besondere Schwerpunkte liegen auf lokaler KI und On-Premises-Architekturen.</p><a className="text-link" href="mailto:hello@samifraunholz.com">Let&apos;s talk <ArrowUpRight size={16} /></a></div></div></section>
 
-      <footer><div className="footer-brand"><Mark /> <span>© 2024 Lina Mora</span></div><div className="socials"><a href="mailto:hello@linamora.studio" aria-label="E-Mail"><Mail size={17} /></a><a href="#contact" aria-label="Instagram">IG</a><a href="#contact" aria-label="LinkedIn">IN</a></div><span>Built with intention.</span></footer>
+      <section id="contact" className="contact section-pad"><div className="section-heading"><span>03 / CONTACT</span><span className="rule" /></div><h2>Have a complex<br /><em>problem?</em></h2><a className="email-link" href="mailto:hello@samifraunholz.com">hello@samifraunholz.com <ArrowUpRight size={25} /></a></section>
+      <footer className="section-pad"><span className="brand">SAMI FRAUNHOLZ</span><span>© 2025 · BERLIN</span><span>Built for what&apos;s next.</span></footer>
     </main>
   );
 }
